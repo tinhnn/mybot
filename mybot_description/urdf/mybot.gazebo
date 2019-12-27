@@ -1,17 +1,16 @@
 <?xml version="1.0"?>
 <robot>
-
-
+  <!-- ros_control plugin -->
   <gazebo>
     <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
-      <legacyMode>false</legacyMode>
       <alwaysOn>true</alwaysOn>
-      <updateRate>20</updateRate>
+      <updateRate>10</updateRate>
       <leftJoint>left_wheel_hinge</leftJoint>
       <rightJoint>right_wheel_hinge</rightJoint>
-      <wheelSeparation>0.4</wheelSeparation>
-      <wheelDiameter>0.1</wheelDiameter>
-      <torque>20</torque>
+      <wheelAcceleration>1.8</wheelAcceleration>
+      <wheelSeparation>0.205</wheelSeparation>
+      <wheelDiameter>0.0610616</wheelDiameter>
+      <torque>0.1</torque>
       <commandTopic>cmd_vel</commandTopic>
       <odometryTopic>odom</odometryTopic>
       <odometryFrame>odom</odometryFrame>
@@ -20,7 +19,39 @@
   </gazebo>
 
   <gazebo reference="chassis">
-      <material>Gazebo/Orange</material>
-    </gazebo>
+    <mu1>0.0</mu1>
+    <mu2>0.0</mu2>
+    <slip1>1.0</slip1>
+    <slip2>1.0</slip2>
+    <kp>10000000</kp>
+    <kd>1</kd>
+    <fdir1>1 0 0</fdir1>
+    <minDepth>0.0001</minDepth>
+    <maxContacts>1</maxContacts>
+  </gazebo>
+ 
+  <gazebo reference="left_wheel">
+    <mu1>50</mu1>
+    <mu2>10</mu2>
+    <slip1>0.0</slip1>
+    <slip2>0.0</slip2>
+    <kp>10000000</kp> 
+    <kd>1</kd>
+    <fdir1>1 0 0</fdir1>
+    <minDepth>0.0001</minDepth>
+    <maxContacts>1</maxContacts>
+  </gazebo>
+
+  <gazebo reference="right_wheel">
+    <mu1>50</mu1>
+    <mu2>10</mu2>
+    <slip1>0.0</slip1>
+    <slip2>0.0</slip2>
+    <kp>10000000</kp> 
+    <kd>1</kd>
+    <fdir1>1 0 0</fdir1>
+    <minDepth>0.0001</minDepth>
+    <maxContacts>1</maxContacts>
+  </gazebo>
 
 </robot>

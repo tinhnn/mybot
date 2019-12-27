@@ -1,5 +1,5 @@
 # mybot
-Source base for new robot on Gazebo
+Source base for make new robot on Gazebo
 
 ## Install software
 ```bash
